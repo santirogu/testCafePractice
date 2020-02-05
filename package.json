@@ -1,0 +1,30 @@
+{
+  "name": "testcafepractice",
+  "version": "1.0.0",
+  "description": "This is a test cafe automation framework practice.",
+  "main": "index.js",
+  "scripts": {
+    "chrome": "testcafe chrome tests/",
+    "chromeheadless": "testcafe chrome:headless tests/",
+    "firefox": "testcafe firefox tests/",
+    "firefoxheadless": "testcafe firefox:headless tests/",
+    "edge": "testcafe edge tests/",
+    "all": "testcafe all tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santirogu/testCafePractice.git"
+  },
+  "keywords": [
+    "testcafe"
+  ],
+  "author": "Santiago RG",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/santirogu/testCafePractice/issues"
+  },
+  "homepage": "https://github.com/santirogu/testCafePractice#readme",
+  "devDependencies": {
+    "testcafe": "^1.8.1"
+  }
+}
