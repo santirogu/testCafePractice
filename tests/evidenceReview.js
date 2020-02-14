@@ -5,7 +5,8 @@ fixture `Edit Evidence Metadata`
     .page `https://qacommand-autom.usgoviowa.cloudapp.usgovcloudapi.net:803/`;
 
     test('Start', async t => {
-        const evidencesList = Selector('.recent-video-section ul li')
+        const evidencesList = Selector('.recent-video-section ul li');
+        const noteTextToType = 'Automation';
         await t
             .maximizeWindow()
             .typeText('#Username', credentials.username)
@@ -18,4 +19,9 @@ fixture `Edit Evidence Metadata`
             .typeText('#jsonIdSearchDateStartedFrom input', '01012020')
             .click('.frm-controls .button-primary')
             .click(evidencesList.nth(0))
+            .click('#openmeta')
+            .typeText('#jsonId21131', noteTextToType)
+            .click('.button-primary')
+            .expect().eql(noteTextToType);
+
     });
