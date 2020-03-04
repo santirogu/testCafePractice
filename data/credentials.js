@@ -1,5 +1,5 @@
 export default
 {
-  'username':'srodriguezg@eroyal.net',
-  'password': 'S4nt1_2020'
+  'username':'srodriguezg@psl.com.co',
+  'password': 'S4nt14g0_2020'
 }

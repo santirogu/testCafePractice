@@ -22,6 +22,6 @@ fixture `Edit Evidence Metadata`
             .click('#openmeta')
             .typeText('#jsonId21131', noteTextToType)
             .click('.button-primary')
-            .expect().eql(noteTextToType);
+            .expect('').eql(noteTextToType);
 
     });
