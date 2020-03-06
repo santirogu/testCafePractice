@@ -1,27 +1,24 @@
 import { Selector } from 'testcafe';
-import credentials from '../data/credentials'
+import credentials from '../data/credentials';
+import LoginPage from '../pages/login/sso/loginPage';
+import AdminDashboardPage from '../pages/admin_dashboard/adminDashboardPage';
+import OfficerDashboardPage from '../pages/officer_dashboard/officerDashboardPage';
+import EvidenceReviewPage from '../pages/evidenceReview/evidenceReviewPage';
 
 fixture `Edit Evidence Metadata`
-    .page `https://qacommand-autom.usgoviowa.cloudapp.usgovcloudapi.net:803/`;
+    .beforeEach(async (t) => {
+        await LoginPage.goto();
+        await LoginPage.login(credentials.username, credentials.password);
+    });
 
-    test('Start', async t => {
-        const evidencesList = Selector('.recent-video-section ul li');
-        const noteTextToType = 'Automation';
+    test('Edit Notes', async t => {
+        const metadata = { notes : 'Automation' };
+        await AdminDashboardPage.gotoOfficerDashboard();
+        await OfficerDashboardPage.search({ dateStartedFrom : '01012020' });
+        await OfficerDashboardPage.openEvidence(0);
+        await EvidenceReviewPage.editMetadata(metadata)
+        const actualValue = await EvidenceReviewPage.getNotesValue();
         await t
-            .maximizeWindow()
-            .typeText('#Username', credentials.username)
-            .typeText('#Password', credentials.password)
-            .click('.login')
-            .click('.ad-pn-32')
-            .click('.adv-search-btn')
-            .click('#jsonIdSearchDateStartedFrom input')
-            .pressKey('left left left left left')
-            .typeText('#jsonIdSearchDateStartedFrom input', '01012020')
-            .click('.frm-controls .button-primary')
-            .click(evidencesList.nth(0))
-            .click('#openmeta')
-            .typeText('#jsonId21131', noteTextToType)
-            .click('.button-primary')
-            .expect('').eql(noteTextToType);
-
+            .expect(actualValue)
+            .eql(metadata.notes, 'I am sorry my friend, but the text [' + actualValue + '] is not equal to [' + metadata.notes + ']');
     });
