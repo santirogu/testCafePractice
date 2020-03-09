@@ -15,7 +15,10 @@ fixture `Edit Evidence Metadata`
         await AdminDashboardPage.gotoOfficerDashboard();
         await OfficerDashboardPage.search({ dateStartedFrom : '01012020' });
         await OfficerDashboardPage.openEvidence(0);
-        await EvidenceReviewPage.editMetadata(metadata)
+        await EvidenceReviewPage.editMetadata(metadata);
+        await t
+            .expect(await EvidenceReviewPage.getToastSuccessValue())
+            .eql('Information updated successfully!', 'Oh! I cannot save the metadata.');
         const actualValue = await EvidenceReviewPage.getNotesValue();
         await t
             .expect(actualValue)

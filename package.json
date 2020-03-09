@@ -4,12 +4,12 @@
   "description": "This is a test cafe automation framework practice.",
   "main": "index.js",
   "scripts": {
-    "chrome": "testcafe chrome tests/",
-    "chromeheadless": "testcafe chrome:headless tests/",
-    "firefox": "testcafe firefox tests/",
-    "firefoxheadless": "testcafe firefox:headless tests/",
-    "edge": "testcafe edge tests/",
-    "all": "testcafe all tests/"
+    "chrome": "testcafe chrome tests/ --reporter html:reports/report.html",
+    "chromeheadless": "testcafe chrome:headless tests/ --reporter html:reports/report.html",
+    "firefox": "testcafe firefox tests/ --reporter html:reports/report.html",
+    "firefoxheadless": "testcafe firefox:headless tests/ --reporter html:reports/report.html",
+    "edge": "testcafe edge tests/ --reporter html:reports/report.html",
+    "all": "testcafe all tests/ --reporter html:reports/report.html"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,8 @@
   "homepage": "https://github.com/santirogu/testCafePractice#readme",
   "devDependencies": {
     "testcafe": "^1.8.1"
+  },
+  "dependencies": {
+    "testcafe-reporter-html": "^1.4.6"
   }
 }

@@ -6,12 +6,17 @@ class EvidenceReviewPage extends Page {
     constructor() {
         super();
         this.btnEditMetadata    = $('#openmeta');
+        this.toastSuccess       = $('.toast-success div');
         this.lblNotes           = $('span').withText('Notes').parent('label').sibling('div').child('label');
     }
 
     async editMetadata(metadata) {
         await t.wait(5000).click(this.btnEditMetadata);
         await MetadataPage.fillMetadata(metadata);
+    }
+
+    async getToastSuccessValue() {
+        return await this.toastSuccess.innerText;
     }
 
     async getNotesValue() {
