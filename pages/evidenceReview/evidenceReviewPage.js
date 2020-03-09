@@ -10,7 +10,7 @@ class EvidenceReviewPage extends Page {
     }
 
     async editMetadata(metadata) {
-        await t.click(this.btnEditMetadata);
+        await t.wait(5000).click(this.btnEditMetadata);
         await MetadataPage.fillMetadata(metadata);
     }
 
