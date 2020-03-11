@@ -1,4 +1,4 @@
-import { t } from "testcafe"
+import { t } from 'testcafe';
 
 const env = "https://qacommand-autom.usgoviowa.cloudapp.usgovcloudapi.net:803/";
 

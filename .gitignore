@@ -107,3 +107,6 @@ dist
 
 # Report html
 reports
+
+# Screenshots taken while test are running
+screenshots

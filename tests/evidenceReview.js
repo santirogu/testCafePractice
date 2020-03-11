@@ -17,6 +17,7 @@ fixture `Edit Evidence Metadata`
         await OfficerDashboardPage.openEvidence(0);
         await EvidenceReviewPage.editMetadata(metadata);
         await t
+            .takeScreenshot()
             .expect(await EvidenceReviewPage.getToastSuccessValue())
             .eql('Information updated successfully!', 'Oh! I cannot save the metadata.');
         const actualValue = await EvidenceReviewPage.getNotesValue();
