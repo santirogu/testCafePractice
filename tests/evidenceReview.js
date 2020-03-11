@@ -20,8 +20,12 @@ fixture `Edit Evidence Metadata`
             .takeScreenshot()
             .expect(await EvidenceReviewPage.getToastSuccessValue())
             .eql('Information updated successfully!', 'Oh! I cannot save the metadata.');
-        const actualValue = await EvidenceReviewPage.getNotesValue();
+        const actualOfficerIdValue  = await EvidenceReviewPage.getOfficerIdValue();
+        const actualNotesValue      = await EvidenceReviewPage.getNotesValue();
         await t
-            .expect(actualValue)
-            .eql(metadata.notes, 'I am sorry my friend, but the text [' + actualValue + '] is not equal to [' + metadata.notes + ']');
+            .expect(actualOfficerIdValue)
+            .eql(metadata.officerName, 'I am sorry my friend, but the text [' + actualOfficerIdValue + '] is not equal to [' + metadata.officerName + ']');
+        await t
+            .expect(actualNotesValue)
+            .eql(metadata.notes, 'I am sorry my friend, but the text [' + actualNotesValue + '] is not equal to [' + metadata.notes + ']');
     });

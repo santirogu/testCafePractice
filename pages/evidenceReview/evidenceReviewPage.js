@@ -7,6 +7,7 @@ class EvidenceReviewPage extends Page {
         super();
         this.btnEditMetadata    = $('#openmeta');
         this.toastSuccess       = $('.toast-success div');
+        this.lblOfficerId       = $('span').withText('Officer Id').parent('label').sibling('div').child('label');
         this.lblNotes           = $('span').withText('Notes').parent('label').sibling('div').child('label');
     }
 
@@ -17,6 +18,10 @@ class EvidenceReviewPage extends Page {
 
     async getToastSuccessValue() {
         return await this.toastSuccess.innerText;
+    }
+
+    async getOfficerIdValue() {
+        return await this.lblOfficerId.innerText;
     }
 
     async getNotesValue() {
