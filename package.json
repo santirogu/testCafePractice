@@ -4,6 +4,7 @@
   "description": "This is a test cafe automation framework practice.",
   "main": "index.js",
   "scripts": {
+    "debug": "node --inspect=1337 --debug-brk --nolazy node_modules/cucumber/bin/cucumber-js --tags @debug --format json:./reports/report.json",
     "chrome": "testcafe chrome tests/ --reporter html:reports/report.html",
     "chromeheadless": "testcafe chrome:headless tests/ --reporter html:reports/report.html",
     "firefox": "testcafe firefox tests/ --reporter html:reports/report.html",
@@ -28,6 +29,9 @@
     "testcafe": "^1.8.1"
   },
   "dependencies": {
+    "cucumber": "^6.0.5",
+    "gherkin-testcafe": "^2.5.0",
     "testcafe-reporter-html": "^1.4.6"
-  }
+  },
+  "types": "index.d.ts"
 }
